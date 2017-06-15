@@ -6,10 +6,10 @@
 # ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -jar /app.jar" ]
 
 FROM java:8
-ARG JAR="target/*.jar"
-ARG PORT=8080
-EXPOSE ${PORT}
-ADD $JAR server.jar
+# ARG JAR="target/*.jar"
+# ARG PORT=8080
+EXPOSE 8080
+ADD target/*.jar server.jar
 ENTRYPOINT ["java"]
 CMD ["-Xms750m", "-Xmx750m", "-jar", "server.jar", "--spring.profiles.active=local"]
 
